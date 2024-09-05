@@ -5,8 +5,6 @@
 #include <iomanip>
 
 void ejercicio2() {
-    // Generar 500 valores aleatorios entre 50 y 100
-    // Presente cuantos valores pares y cuantos impares fueron generados
     std::random_device rd;
     std::mt19937 gen(rd());
     std::uniform_int_distribution<> dis(50, 100);

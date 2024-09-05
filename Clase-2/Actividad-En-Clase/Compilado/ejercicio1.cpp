@@ -5,7 +5,6 @@
 #include <iomanip>
 
 void ejercicio1() {
-    // Ingrese 10 valores por teclado. Presentar la suma y promedio
     std::vector<double> valores(10);
     double suma = 0;
 
