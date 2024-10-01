@@ -3,15 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Model\Proyecto;
+use Illuminate\Support\Facades\DB;
 
 class ProyectoController extends Controller
 {
     /**
      * Display a listing of the resource.
+     * 
+     * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        return view("projects/index");
+       $proyectos = DB::table('proyectos') ->get();
+       return view("projects/index",['proyectos' =>$proyectos]);
     }
 
     /**
@@ -19,7 +24,7 @@ class ProyectoController extends Controller
      */
     public function create()
     {
-        //
+        return view("projects/new");
     }
 
     /**

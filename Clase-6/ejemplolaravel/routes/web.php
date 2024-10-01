@@ -8,3 +8,5 @@ Route::get('/', function () {
 });
 
 Route::resource("project",ProyectoController::class);
+
+Route::post('/project', 'ProjectController@store')->name('project');

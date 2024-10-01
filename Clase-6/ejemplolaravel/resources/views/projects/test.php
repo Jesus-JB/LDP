@@ -66,55 +66,26 @@
           </ul>
         </div>
         <div class="col-5">
-          <div id="carouselExample" class="carousel slide">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="/images/1.jpg" class="d-block w-100" alt="Placeholder 1">
-              </div>
-              <div class="carousel-item">
-                <img src="/images/2.jpg" class="d-block w-100" alt="Placeholder 2">
-              </div>
-              <div class="carousel-item">
-                <img src="/images/.jpg" class="d-block w-100" alt="Placeholder 3">
-              </div>
+        <br/>
+            <p class="fs-1">Registro de Proyectos</p>
+            <br/>
+          <form>
+            <div class="input-group input-group-sm mb-3">
+              <span class="input-group-text" id="inputGroup-sizing-sm">Titulo</span>
+              <input type="text" name="titulo" id="titulo" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
+
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="inputGroup-sizing-default">Descripcion</span>
+              <input type="text" name="descipcion" id="descripcion" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+          </form>  
           </div>
         </div>
         <div class="col">
           3 of 3
         </div>
       </div>
-      <div class="row">
-        <div class="col">
-          <table class="table table-striped table-hover">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Proyecto</th>
-                <th scope="col">Descripción</th>
-                <th scope="col">Fecha creación</th>
-              </tr>
-            </thead>
-            <tbody>
-              @foreach($proyectos as $proyecto)
-              <tr>
-                <th scope="row">{{$proyecto->id}}</th>
-                <td>{{$proyecto->titulo}}</td>
-                <td>{{$proyecto->descripcion}}</td>
-                <td>{{$proyecto->created_at}}</td>
-              </tr>
-              @endforeach
-              </tr>
-            </tbody>
-          </table>
         </div>
       </div>
     </div>
