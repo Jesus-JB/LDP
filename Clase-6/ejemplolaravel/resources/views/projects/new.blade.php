@@ -77,11 +77,13 @@
               <input type="text" name="titulo" id="titulo" class="form-control" aria-label="Titulo del proyecto" aria-describedby="inputGroup-sizing-default">
             </div>
 
-            <div class="input-group input-group-lg">
+            <div class="input-group mb-3">
               <span class="input-group-text" id="inputGroup-sizing-default">Descripcion</span>
               <input type="text" name="descripcion" id="descripcion" class="form-control" aria-label="Descripción del proyecto" aria-describedby="inputGroup-sizing-lg">
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
           </form>  
         </div>
         <div class="col">
