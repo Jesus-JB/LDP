@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Model\Proyecto;
+use App\Models\Proyecto;
 use Illuminate\Support\Facades\DB;
 
 class ProyectoController extends Controller
@@ -32,7 +32,13 @@ class ProyectoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'titulo' => 'required|max:255',
+            'descripcion' => 'nullable',
+        ]);
+
+        Proyecto::create($validatedData);
+        return redirect('project/')->with('success', 'Proyecto creado satisfactoriamente');
     }
 
     /**
@@ -46,9 +52,10 @@ class ProyectoController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
-        //
+        $proyecto = Proyecto::find($id);
+        return view('projects.update', compact('proyecto'));
     }
 
     /**
@@ -56,7 +63,14 @@ class ProyectoController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request ->validate([
+            'titulo' => "required",
+            'descripcion' => "required"
+        ]);
+
+        $proyecto = Proyecto::find($id);
+        $proyecto -> update($request->all());
+        return redirect('project/')->with('success', 'Proyecto actualizado satisfactoriamente');
     }
 
     /**

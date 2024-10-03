@@ -69,22 +69,29 @@
           <br/>
           <p class="fs-1">Registro de Proyectos</p>
           <br/>
-          <form action ="{{route('project')}}" method="post">
-                @csrf
-                @method('POST')
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="inputGroup-sizing-sm">Titulo</span>
-              <input type="text" name="titulo" id="titulo" class="form-control" aria-label="Titulo del proyecto" aria-describedby="inputGroup-sizing-default">
+          <form action="{{ route('project.store') }}" method="POST">
+            @csrf
+            @method('POST')
+            <div class="mb-3">
+                <label for="titulo" class="form-label">Título</label>
+                <input type="text" name="titulo" id="titulo" class="form-control @error('titulo') is-invalid @enderror" value="{{ old('titulo') }}">
+                @error('titulo')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
             </div>
 
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="inputGroup-sizing-default">Descripcion</span>
-              <input type="text" name="descripcion" id="descripcion" class="form-control" aria-label="Descripción del proyecto" aria-describedby="inputGroup-sizing-lg">
+            <div class="mb-3">
+                <label for="descripcion" class="form-label">Descripción</label>
+                <textarea name="descripcion" id="descripcion" class="form-control @error('descripcion') is-invalid @enderror" rows="3">{{ old('descripcion') }}</textarea>
+                @error('descripcion')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
             </div>
+
             <div class="text-center">
-              <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Guardar</button>
             </div>
-          </form>  
+        </form> 
         </div>
         <div class="col">
           3 of 3

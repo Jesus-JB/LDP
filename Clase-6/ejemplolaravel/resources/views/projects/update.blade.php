@@ -66,55 +66,29 @@
           </ul>
         </div>
         <div class="col-5">
-          <div id="carouselExample" class="carousel slide">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="/images/1.jpg" class="d-block w-100" alt="Placeholder 1">
-              </div>
-              <div class="carousel-item">
-                <img src="/images/2.jpg" class="d-block w-100" alt="Placeholder 2">
-              </div>
-              <div class="carousel-item">
-                <img src="/images/3.jpg" class="d-block w-100" alt="Placeholder 3">
-              </div>
+        <br/>
+          <p class="fs-1">Modificación de Proyectos</p>
+          <br/>
+          <form action="{{ route('project.update', $proyecto->id) }}" method="post">
+            @csrf
+            @method('PUT')
+            <div class="mb-3">
+                <label for="id" class="form-label">ID</label>
+                <input type="text" name="id" id="id" class="form-control" value="{{ $proyecto->id }}" readonly>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
-          </div>
+            <div class="mb-3">
+                <label for="titulo" class="form-label">Título</label>
+                <input type="text" name="titulo" id="titulo" class="form-control" value="{{ $proyecto->titulo }}">
+            </div>
+            <div class="mb-3">
+                <label for="descripcion" class="form-label">Descripción</label>
+                <textarea name="descripcion" id="descripcion" class="form-control" rows="3">{{ $proyecto->descripcion }}</textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Actualizar</button>
+          </form>  
         </div>
         <div class="col">
           3 of 3
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          <table class="table table-striped table-hover">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Proyecto</th>
-                <th scope="col">Descripción</th>
-                <th scope="col">Fecha creación</th>
-              </tr>
-            </thead>
-            <tbody>
-              @foreach($proyectos as $proyecto)
-              <tr>
-                <th scope="row">{{$proyecto->id}}</th>
-                <td>{{$proyecto->titulo}}</td>
-                <td>{{$proyecto->descripcion}}</td>
-                <td>{{$proyecto->created_at}}</td>
-              </tr>
-              @endforeach
-              </tr>
-            </tbody>
-          </table>
         </div>
       </div>
     </div>
