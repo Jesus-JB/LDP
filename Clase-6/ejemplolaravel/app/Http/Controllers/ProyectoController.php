@@ -78,6 +78,9 @@ class ProyectoController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $proyecto = Proyecto::find($id);
+        $proyecto -> delete();
+        return redirect('project/')
+        ->with('success', 'Proyecto eliminado satisfactoriamente.');
     }
 }

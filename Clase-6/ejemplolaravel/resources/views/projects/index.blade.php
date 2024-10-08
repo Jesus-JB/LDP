@@ -52,16 +52,7 @@
         <div class="col">
           <ul class="nav flex-column">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Active</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+              <a class="nav-link active" aria-current="page" href="{{url('project/')}}">Gestion de Proyectos</a>
             </li>
           </ul>
         </div>
@@ -101,6 +92,7 @@
                 <th scope="col">Proyecto</th>
                 <th scope="col">Descripción</th>
                 <th scope="col">Fecha creación</th>
+                <th scope="col">Acciones</th>
               </tr>
             </thead>
             <tbody>
@@ -110,6 +102,20 @@
                 <td>{{$proyecto->titulo}}</td>
                 <td>{{$proyecto->descripcion}}</td>
                 <td>{{$proyecto->created_at}}</td>
+                <td>
+                <form action = "{{route('project.edit', $proyecto->id)}}" method = "POST">
+                    @csrf
+                    @method('GET')
+                    <button type = "submit">Editar</button>
+                  </form>
+                </td>
+                <td>
+                  <form action = "{{route('project.destroy', $proyecto->id)}}" method = "POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type = "submit">Delete</button>
+                  </form>
+                </td>
               </tr>
               @endforeach
               </tr>
