@@ -1,3 +1,3 @@
 # LDP
-Lenguaje de Programacion
+Lenguaje de Programacion | Primer Parcial
 - Jesus Jimenez
